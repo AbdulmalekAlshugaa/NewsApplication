@@ -1,4 +1,4 @@
-package com.example.myapplication.view;
+package com.example.myapplication.view.fragments;
 
 import android.os.Bundle;
 import android.util.Log;
@@ -53,10 +53,9 @@ public class SearchArticle extends Fragment implements SwipeRefreshLayout.OnRefr
         recyclerViewSetUp();
        // testListViews();
 
-
         binding.swipToRefreshLayout.setRefreshing(false);
         binding.swipToRefreshLayout.setOnRefreshListener(this);
-        binding.swipToRefreshLayout.setColorSchemeResources(R.color.purple_200,
+        binding.swipToRefreshLayout.setColorSchemeResources(R.color.black,
                 android.R.color.holo_green_dark,
                 android.R.color.holo_orange_dark,
                 android.R.color.holo_blue_dark);

@@ -6,9 +6,9 @@ import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 
-import com.example.myapplication.view.PopularFragment;
+import com.example.myapplication.view.fragments.PopularFragment;
 import com.example.myapplication.view.MainFragment;
-import com.example.myapplication.view.SearchArticle;
+import com.example.myapplication.view.fragments.SearchArticle;
 
 public class MainActivity extends AppCompatActivity {
 

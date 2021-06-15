@@ -1,4 +1,4 @@
-package com.example.myapplication.view;
+package com.example.myapplication.view.fragments;
 
 import android.os.Bundle;
 import android.text.Editable;

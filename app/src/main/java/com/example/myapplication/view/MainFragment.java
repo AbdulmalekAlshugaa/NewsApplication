@@ -12,6 +12,8 @@ import androidx.fragment.app.Fragment;
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.MainFragmentBinding;
 import com.example.myapplication.singleton.SortBySingleton;
+import com.example.myapplication.view.fragments.PopularFragment;
+import com.example.myapplication.view.fragments.SearchArticle;
 
 import java.util.Objects;
 
