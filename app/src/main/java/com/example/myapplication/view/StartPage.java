@@ -22,10 +22,11 @@ public class StartPage extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_start_page);
+        mLogo = findViewById(R.id.imageView2);
 
 
-        descimage = (LinearLayout) findViewById(R.id.titleimage);
-        desctxt = (LinearLayout) findViewById(R.id.titletxt);
+        descimage = findViewById(R.id.titleimage);
+        desctxt = findViewById(R.id.titletxt);
         uptodown = AnimationUtils.loadAnimation(this,R.anim.uptodown);
         downtoup = AnimationUtils.loadAnimation(this,R.anim.downtoup);
 //      THIS ANIMATIONS ARE SET INSIDE THE (ANIM) FOLDER.
@@ -48,7 +49,6 @@ public class StartPage extends AppCompatActivity {
         RotateAnimation rotate = new RotateAnimation(0, 720, Animation.RELATIVE_TO_SELF,0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
         rotate.setDuration(3000);
         rotate.setInterpolator(new LinearInterpolator());
-        mLogo.startAnimation(rotate);
 
 
 
