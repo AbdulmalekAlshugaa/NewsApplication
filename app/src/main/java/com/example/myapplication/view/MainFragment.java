@@ -11,6 +11,8 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myapplication.R;
 import com.example.myapplication.databinding.MainFragmentBinding;
+import com.example.myapplication.singleton.SortBySingleton;
+
 import java.util.Objects;
 
 
@@ -42,6 +44,7 @@ public class MainFragment extends Fragment {
                 bundle.putString("key","MostView");
                 PopularFragment nextFrag= new PopularFragment();
                 nextFrag.setArguments(bundle);
+                SortBySingleton.getInstance().setSortBy("viewed");
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_FrameLayout_Activity, nextFrag, "MostView")
                         .addToBackStack(null)
@@ -55,6 +58,7 @@ public class MainFragment extends Fragment {
                 bundle.putString("key","MostShared");
                 PopularFragment nextFrag= new PopularFragment();
                 nextFrag.setArguments(bundle);
+                SortBySingleton.getInstance().setSortBy("shared");
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_FrameLayout_Activity, nextFrag, "mostShared")
                         .addToBackStack(null)
@@ -68,6 +72,7 @@ public class MainFragment extends Fragment {
                 bundle.putString("key","MostEmailed");
                 PopularFragment nextFrag= new PopularFragment();
                 nextFrag.setArguments(bundle);
+                SortBySingleton.getInstance().setSortBy("emailed");
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_FrameLayout_Activity, nextFrag, "mostEmailed")
                         .addToBackStack(null)

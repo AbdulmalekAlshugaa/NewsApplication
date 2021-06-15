@@ -3,6 +3,9 @@ package com.example.myapplication.view;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -14,9 +17,11 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import com.example.myapplication.R;
 import com.example.myapplication.adapter.MostViewAdapter;
 import com.example.myapplication.databinding.LoadingFragmentBinding;
 import com.example.myapplication.model.article.mostView.ResultsItem;
+import com.example.myapplication.singleton.SortBySingleton;
 import com.example.myapplication.viewModel.PopularViewModel;
 
 import java.util.ArrayList;
@@ -40,6 +45,7 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
         setHasOptionsMenu(true);
         view = binding.getRoot();
         // init compositDisposable
+
 
         recyclerViewSetUp();
 
@@ -109,6 +115,35 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
     public void onStop() {
         super.onStop();
         mCompositeDisposable.clear();
+
+    }
+    @Override
+    public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
+        inflater.inflate(R.menu.main, menu);
+        super.onCreateOptionsMenu(menu, inflater);
+
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.oneDay:
+                mPopularArrayList.clear();
+                observeMostViewArticles(1, SortBySingleton.getInstance().getSortBy());
+                return true;
+
+            case R.id.sevenDays:
+                mPopularArrayList.clear();
+                observeMostViewArticles(7, SortBySingleton.getInstance().getSortBy());
+
+                return true;
+            case R.id.oneMonth:
+                mPopularArrayList.clear();
+                observeMostViewArticles(30, SortBySingleton.getInstance().getSortBy());
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
 
     }
 }
