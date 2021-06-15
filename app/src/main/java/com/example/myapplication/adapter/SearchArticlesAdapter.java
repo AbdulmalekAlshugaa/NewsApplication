@@ -11,7 +11,10 @@ import com.example.myapplication.databinding.ArticleItemBinding;
 import com.example.myapplication.model.article.articles.Articles;
 import com.example.myapplication.model.article.articles.DocsItem;
 
+import java.text.ParseException;
 import java.util.ArrayList;
+
+import static com.example.myapplication.utilities.Constants.publishDataConverting;
 
 public class SearchArticlesAdapter  extends RecyclerView.Adapter<SearchArticlesAdapter.ViewHolder> {
     private Context mContext;
@@ -32,7 +35,11 @@ public class SearchArticlesAdapter  extends RecyclerView.Adapter<SearchArticlesA
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.articleItemBinding.title.setText(articleResponseArrayList.get(position).getJsonMemberAbstract());
-        holder.articleItemBinding.description.setText(articleResponseArrayList.get(position).getPubDate());
+        try {
+            holder.articleItemBinding.description.setText(publishDataConverting(articleResponseArrayList.get(position).getPubDate()));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
     }
 

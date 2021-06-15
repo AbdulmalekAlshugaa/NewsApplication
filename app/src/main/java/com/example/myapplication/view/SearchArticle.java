@@ -5,17 +5,21 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.example.myapplication.R;
 import com.example.myapplication.adapter.SearchArticlesAdapter;
 import com.example.myapplication.databinding.SearchArticleBinding;
-import com.example.myapplication.model.article.articles.Articles;
 import com.example.myapplication.model.article.articles.DocsItem;
+import com.example.myapplication.singleton.SearchSingleton;
 import com.example.myapplication.viewModel.ArticleListViewModel;
 
 import java.util.ArrayList;
@@ -24,7 +28,7 @@ import java.util.Objects;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class SearchArticle extends Fragment {
+public class SearchArticle extends Fragment implements SwipeRefreshLayout.OnRefreshListener{
     private View view;
     private SearchArticleBinding binding;
     // init article view model
@@ -48,11 +52,10 @@ public class SearchArticle extends Fragment {
         mCompositeDisposable = new CompositeDisposable();
         recyclerViewSetUp();
        // testListViews();
-        observeArticlesData("News");
 
-        // swip to refersh
+
         binding.swipToRefreshLayout.setRefreshing(false);
-        //binding.swipToRefreshLayout.setOnRefreshListener(this);
+        binding.swipToRefreshLayout.setOnRefreshListener(this);
         binding.swipToRefreshLayout.setColorSchemeResources(R.color.purple_200,
                 android.R.color.holo_green_dark,
                 android.R.color.holo_orange_dark,
@@ -61,6 +64,7 @@ public class SearchArticle extends Fragment {
         binding.searchButton.setOnClickListener(v -> {
          String searchText = Objects.requireNonNull(binding.articleSearchByEditText.getText()).toString();
             observeArticlesData(searchText);
+            SearchSingleton.getInstance().setFilteringType(searchText);
 
         });
         return view;
@@ -69,16 +73,19 @@ public class SearchArticle extends Fragment {
 
 
     private void observeArticlesData(String filteringType) {
-
+        toggleLoading();
         HashMap<String, Object> searchingParams = new HashMap<>();
         searchingParams.put("q",filteringType);
 
-
-        articleListViewModel.getAllTheArticles(mCompositeDisposable,1,searchingParams)
+        articleListViewModel.getAllTheArticles(mCompositeDisposable,currentPage,searchingParams)
                 .observe(this, articleResponse -> {
                     if(articleResponse.getResponse() != null){
+                        toggleLoading();
+                        totalPages = articleResponse.getResponse().getMeta().getOffset();
+
+
                         for (int i=0; i<articleResponse.getResponse().getDocs().size(); i++){
-                            Log.d(TAG, "observeArticlesData: "+articleResponse.getResponse().getDocs().get(i).getJsonMemberAbstract());
+                            Log.d(TAG, "observeArticlesData: "+articleResponse.getResponse().getDocs().get(i).getPubDate());
                             DocsItem docsItem = new DocsItem();
                             docsItem.setJsonMemberAbstract(articleResponse.getResponse().getDocs().get(i).getJsonMemberAbstract());
                             docsItem.setPubDate(articleResponse.getResponse().getDocs().get(i).getPubDate());
@@ -86,20 +93,24 @@ public class SearchArticle extends Fragment {
                         }
                         mCompanyProductionAdapter.notifyDataSetChanged();
                     }
-
+                    binding.swipToRefreshLayout.setRefreshing(false);
 
                 });
 
     }
-    public void testListViews(){
-        for (int i=0; i<100; i++){
+    private void toggleLoading(){
 
-            DocsItem docsItem = new DocsItem();
-            docsItem.setJsonMemberAbstract("News from ");
-            docsItem.setPubDate("2021-5-7");
-            mMovieResponseArrayList.add(docsItem);
+        // check if the progressBar is currently running a
+        if(binding.progressBar.isShown()){
+            binding.progressBar.setVisibility(View.INVISIBLE);
+        }else {
+            binding.progressBar.setVisibility(View.VISIBLE);
         }
-        mCompanyProductionAdapter.notifyDataSetChanged();
+
+    }
+
+    private void resetAllParamsToDefault() {
+        currentPage = 1;
     }
     private void recyclerViewSetUp() {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
@@ -108,6 +119,38 @@ public class SearchArticle extends Fragment {
         mCompanyProductionAdapter = new SearchArticlesAdapter(view.getContext(), mMovieResponseArrayList);
         binding.loadListRecyclerView.setAdapter(mCompanyProductionAdapter);
         binding.loadListRecyclerView.invalidate();
+
+        binding.loadListRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+
+            @Override
+            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if(!binding.loadListRecyclerView.canScrollVertically(1)){
+                    if(currentPage <= totalPages){
+                        currentPage +=1;
+                        observeArticlesData(SearchSingleton.getInstance().getFilteringType());
+                    }else {
+                        // here is the end of the list
+                        Toast.makeText(getActivity(), "Here is the end of the list", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+
+            }
+        });
     }
 
+    @Override
+    public void onRefresh() {
+        mMovieResponseArrayList.clear();
+        resetAllParamsToDefault();
+        observeArticlesData("elections");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        mCompositeDisposable.clear();
+
+    }
 }
