@@ -107,7 +107,7 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
     }
 
     private void observeMostViewArticles(Integer period,String whichEndPoint) {
-        popularViewModel.getAllMostViewArticles(mCompositeDisposable,period,whichEndPoint)
+        popularViewModel.getAllPopularArticles(mCompositeDisposable,period,whichEndPoint)
 
                 .observe(this, articleResponse -> {
                     if(articleResponse.getResults().size() > 0){

@@ -17,7 +17,7 @@ public class Constants {
     public static final int NETWORK_TIMEOUT = 30;
 
     // convert date
-    public static String publishDataConverting(String inputDate) throws ParseException {
+    public static String convertTimeStampDate(String inputDate) throws ParseException {
         Date date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss", Locale.getDefault()).parse(inputDate);
         return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
     }

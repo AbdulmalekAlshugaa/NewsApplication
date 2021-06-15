@@ -20,7 +20,7 @@ public class PopularViewModel extends ViewModel {
         this.appRepository = new AppRepository();
     }
 
-    public LiveData<MostView> getAllMostViewArticles(CompositeDisposable disposable, Integer period,String whichEndPoint){
+    public LiveData<MostView> getAllPopularArticles(CompositeDisposable disposable, Integer period, String whichEndPoint){
       return appRepository.getTheMostViews(disposable, period,whichEndPoint);
 
     }

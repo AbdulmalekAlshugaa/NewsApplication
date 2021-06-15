@@ -20,7 +20,7 @@ import com.example.myapplication.adapter.SearchArticlesAdapter;
 import com.example.myapplication.databinding.SearchArticleBinding;
 import com.example.myapplication.model.article.articles.DocsItem;
 import com.example.myapplication.singleton.SearchSingleton;
-import com.example.myapplication.viewModel.ArticleListViewModel;
+import com.example.myapplication.viewModel.searchArticleViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class SearchArticle extends Fragment implements SwipeRefreshLayout.OnRefr
     private View view;
     private SearchArticleBinding binding;
     // init article view model
-    private ArticleListViewModel articleListViewModel;
+    private searchArticleViewModel searchArticleViewModel;
     private CompositeDisposable mCompositeDisposable;
     private final ArrayList<DocsItem> mMovieResponseArrayList = new ArrayList<>();
     private static final String TAG = "SearchArticle";
@@ -48,7 +48,7 @@ public class SearchArticle extends Fragment implements SwipeRefreshLayout.OnRefr
         view = binding.getRoot();
         binding.progressBar.setVisibility(View.INVISIBLE);
         // init
-        articleListViewModel = new ViewModelProvider(this).get(ArticleListViewModel.class);
+        searchArticleViewModel = new ViewModelProvider(this).get(searchArticleViewModel.class);
         mCompositeDisposable = new CompositeDisposable();
         recyclerViewSetUp();
        // testListViews();
@@ -76,7 +76,7 @@ public class SearchArticle extends Fragment implements SwipeRefreshLayout.OnRefr
         HashMap<String, Object> searchingParams = new HashMap<>();
         searchingParams.put("q",filteringType);
 
-        articleListViewModel.getAllTheArticles(mCompositeDisposable,currentPage,searchingParams)
+        searchArticleViewModel.getAllTheArticles(mCompositeDisposable,currentPage,searchingParams)
                 .observe(this, articleResponse -> {
                     if(articleResponse.getResponse() != null){
                         toggleLoading();

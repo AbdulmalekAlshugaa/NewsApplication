@@ -12,12 +12,12 @@ import java.util.HashMap;
 import io.reactivex.disposables.CompositeDisposable;
 
 
-public class ArticleListViewModel extends ViewModel {
+public class searchArticleViewModel extends ViewModel {
     private AppRepository appRepository;
     private static final String TAG = "MovieByIdViewModel";
 
 
-    public ArticleListViewModel() {
+    public searchArticleViewModel() {
         this.appRepository = new AppRepository();
     }
 
