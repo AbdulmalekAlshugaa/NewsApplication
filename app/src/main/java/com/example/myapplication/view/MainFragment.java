@@ -35,6 +35,44 @@ public class MainFragment extends Fragment {
                     .addToBackStack(null)
                     .commit();
         });
+        binding.mostViewFragment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key","MostView");
+                LoadDataFragment nextFrag= new LoadDataFragment();
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "search")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        binding.mostShared.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key","MostShared");
+                LoadDataFragment nextFrag= new LoadDataFragment();
+                nextFrag.setArguments(bundle);
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "search")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
+        binding.mostEmailed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("key","MostEmailed");
+                LoadDataFragment nextFrag= new LoadDataFragment();
+                nextFrag.setArguments(bundle);
+                Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "search")
+                        .addToBackStack(null)
+                        .commit();
+            }
+        });
         return view;
     }
 }

@@ -8,6 +8,7 @@ import androidx.lifecycle.MutableLiveData;
 
 import com.example.myapplication.di.NetworkModuleService;
 import com.example.myapplication.model.article.articles.Articles;
+import com.example.myapplication.model.article.mostView.MostView;
 
 import java.util.HashMap;
 
@@ -24,25 +25,34 @@ public class AppRepository {
 
     public AppRepository() {
         networkModuleService = new NetworkModuleService();
-
     }
-
-
     // get a list of movies
-
-    public LiveData<Articles> getArticles(CompositeDisposable disposable, Integer pageNumber, HashMap<String, Object> filteringParams) {
-
+    public LiveData<Articles> getArticles(CompositeDisposable disposable, Integer pageNumber, HashMap<String, Object> searchParams) {
         MutableLiveData<Articles> data = new MutableLiveData<>();
         disposable.add(
-                networkModuleService.movieApiRepositoryService().getAllArticles(pageNumber, filteringParams)
+                networkModuleService.movieApiRepositoryService().getAllArticles(pageNumber, searchParams)
                         .subscribeOn(Schedulers.computation())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(articlesResults -> {
-                                    Log.d(TAG, "accept: I am here "+articlesResults.getCopyright());
                                     data.postValue(articlesResults);
                                 },
                                 throwable -> {
+                                    Log.d(TAG, "error: "+throwable.getMessage().toString());
 
+
+                                }));
+        return data;
+    }
+    // get the most views movie
+    public LiveData<MostView> getTheMostViews(CompositeDisposable disposable, Integer period) {
+        MutableLiveData<MostView> data = new MutableLiveData<>();
+        disposable.add(
+                networkModuleService.movieApiRepositoryService().getMostViewed(period)
+                        .subscribeOn(Schedulers.computation())
+                        .observeOn(AndroidSchedulers.mainThread())
+                        .subscribe(data::postValue,
+                                throwable -> {
+                                    Log.d(TAG, "error: "+throwable.getMessage().toString());
                                 }));
         return data;
     }

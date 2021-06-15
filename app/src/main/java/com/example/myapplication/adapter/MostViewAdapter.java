@@ -3,23 +3,22 @@ package com.example.myapplication.adapter;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.example.myapplication.databinding.ArticleItemBinding;
-import com.example.myapplication.model.article.articles.DocsItem;
 
-import java.text.ParseException;
+import com.example.myapplication.databinding.ArticleItemBinding;
+import com.example.myapplication.model.article.mostView.ResultsItem;
+
 import java.util.ArrayList;
 
-import static com.example.myapplication.utilities.Constants.publishDataConverting;
-
-public class SearchArticlesAdapter  extends RecyclerView.Adapter<SearchArticlesAdapter.ViewHolder> {
+public class MostViewAdapter extends RecyclerView.Adapter<MostViewAdapter.ViewHolder> {
     private Context mContext;
-    private final ArrayList<DocsItem> articleResponseArrayList;
+    private final ArrayList<ResultsItem> mostViewArticles;
 
-    public SearchArticlesAdapter(Context mContext, ArrayList<DocsItem> articleResponseArrayList) {
+    public MostViewAdapter(Context mContext, ArrayList<ResultsItem> mostViewArticles) {
         this.mContext = mContext;
-        this.articleResponseArrayList = articleResponseArrayList;
+        this.mostViewArticles = mostViewArticles;
     }
 
     @NonNull
@@ -31,18 +30,13 @@ public class SearchArticlesAdapter  extends RecyclerView.Adapter<SearchArticlesA
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.articleItemBinding.title.setText(articleResponseArrayList.get(position).getJsonMemberAbstract());
-        try {
-            holder.articleItemBinding.description.setText(publishDataConverting(articleResponseArrayList.get(position).getPubDate()));
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
+        holder.articleItemBinding.title.setText(mostViewArticles.get(position).getTitle());
+        holder.articleItemBinding.description.setText(mostViewArticles.get(position).getPublishedDate());
     }
 
     @Override
     public int getItemCount() {
-        return articleResponseArrayList.size();
+        return mostViewArticles.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
