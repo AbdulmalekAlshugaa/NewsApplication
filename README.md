@@ -1,5 +1,5 @@
 #  Project Overview 
-The developed application is an application with the aim to display a list of news where the user can able to view the tile of  the news as well as . The user can able to filter the news peroid such as 1 day , 7 days and 30 days options. In addition, the developer will consume one of the popular movies API which will be attached later to this documentation.
+The developed application is an application with the aim to display a list of news where the user can able to view the tile of  the news as well as . The user can able to filter the news peroid such as 1 day , 7 days and 30 days options. In addition, the developer will consume one of the popular news API which will be attached later to this documentation.
  ## Main Features
 1. Java
 2. MVVM
@@ -24,9 +24,9 @@ The user will be able to list all the movies and has the ability to filter movie
 ## Design and architecture 
 ### flowchart of the application :
 
-| Listing Movies |Filtering Movie | Movie Details |
-| ----------- | ----------- | ----------- |
-| ![listMovies](https://user-images.githubusercontent.com/33663456/117691887-fa069400-b1ee-11eb-8f5a-b8ca2f4aa09e.PNG) | ![filterMovies](https://user-images.githubusercontent.com/33663456/117691982-1b678000-b1ef-11eb-8546-ff16ceee24e9.PNG)|![MovieDetails](https://user-images.githubusercontent.com/33663456/117692698-dc85fa00-b1ef-11eb-96cc-cbfd60fc9c9d.PNG)
+| search |Filtering news 
+| ----------- | ----------- 
+| ![listMovies](https://user-images.githubusercontent.com/33663456/117691887-fa069400-b1ee-11eb-8f5a-b8ca2f4aa09e.PNG) | ![filterMovies](https://user-images.githubusercontent.com/33663456/117691982-1b678000-b1ef-11eb-8546-ff16ceee24e9.PNG)
 
 The above table shows the main three functions of the application which are listing movies, filtering movies, and Movie Details. In addition, the developer should meet these requirements in order to deliver a fully functional application.
 ### Sequence diagram :
