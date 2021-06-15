@@ -50,9 +50,11 @@ The application will be developed using MVVM architecture
 1. Remote Data Source which is the API https://developer.nytimes.com/
 
 ### implementation 
-| Listing Movies |Movie Details |Booking |
+| Main Fragment |Movie Details |Booking |
 | ----------- | ----------- | ----------- |
-| ![Capture](https://user-images.githubusercontent.com/33663456/117707032-9e450680-b200-11eb-97ef-c05b6b162df3.PNG)|![Captures](https://user-images.githubusercontent.com/33663456/117703773-a3a05200-b1fc-11eb-8f26-dd0955513720.PNG)|![Capture](https://user-images.githubusercontent.com/33663456/117703741-94b99f80-b1fc-11eb-81a3-716204c00adf.PNG)
+| ![Capture](https://user-images.githubusercontent.com/33663456/122086588-6bf97b00-ce36-11eb-8261-31a627fc54bc.PNG)| ![Capture1](https://user-images.githubusercontent.com/33663456/122086626-761b7980-ce36-11eb-9c55-32001c12d90f.PNG)
+![Capture3](https://user-images.githubusercontent.com/33663456/122086635-7a479700-ce36-11eb-8598-845414b43434.PNG)
+|
 
 ## Testing  
 ## unit testing 
