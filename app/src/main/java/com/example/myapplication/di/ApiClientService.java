@@ -3,7 +3,7 @@ package com.example.myapplication.di;
 
 ;
 
-import com.example.myapplication.model.article.ArticleResponse;
+import com.example.myapplication.model.article.articles.Articles;
 import com.example.myapplication.model.article.mostView.MostView;
 import com.example.myapplication.utilities.ApiConstants;
 
@@ -19,7 +19,7 @@ import retrofit2.http.QueryMap;
 public interface ApiClientService {
     // get the user personal
     @GET(ApiConstants.DISCOVER_ARTICLES)
-    Flowable<ArticleResponse> getAllArticles(@Query("page") Integer pageNumber, @QueryMap Map<String, Object> params);
+    Flowable<Articles> getAllArticles(@Query("page") Integer pageNumber, @QueryMap Map<String, Object> params);
 
     // get most view
     @GET(ApiConstants.MOST_VIEWED)

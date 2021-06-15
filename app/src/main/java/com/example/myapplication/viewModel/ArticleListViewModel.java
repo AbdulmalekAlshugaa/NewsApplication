@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.ViewModel;
 
 
-import com.example.myapplication.model.article.ArticleResponse;
+import com.example.myapplication.model.article.articles.Articles;
 import com.example.myapplication.repository.AppRepository;
 
 import java.util.HashMap;
@@ -21,7 +21,7 @@ public class ArticleListViewModel extends ViewModel {
         this.appRepository = new AppRepository();
     }
 
-    public LiveData<ArticleResponse> getAllTheArticles(CompositeDisposable disposable, Integer pageNumber, HashMap<String, Object> filteringParams){
+    public LiveData<Articles> getAllTheArticles(CompositeDisposable disposable, Integer pageNumber, HashMap<String, Object> filteringParams){
       return appRepository.getArticles(disposable, pageNumber,filteringParams);
 
     }

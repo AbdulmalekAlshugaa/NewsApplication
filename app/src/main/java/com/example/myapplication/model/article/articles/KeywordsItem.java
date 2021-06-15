@@ -1,4 +1,4 @@
-package com.example.myapplication.model.article;
+package com.example.myapplication.model.article.articles;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -16,16 +16,32 @@ public class KeywordsItem{
 	@SerializedName("value")
 	private String value;
 
+	public void setMajor(String major){
+		this.major = major;
+	}
+
 	public String getMajor(){
 		return major;
+	}
+
+	public void setName(String name){
+		this.name = name;
 	}
 
 	public String getName(){
 		return name;
 	}
 
+	public void setRank(int rank){
+		this.rank = rank;
+	}
+
 	public int getRank(){
 		return rank;
+	}
+
+	public void setValue(String value){
+		this.value = value;
 	}
 
 	public String getValue(){

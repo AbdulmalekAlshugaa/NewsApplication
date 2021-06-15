@@ -24,22 +24,22 @@
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:ellipsize="end"
-                android:textSize="18dp"
+                android:layout_height="wrap_content"
+                android:textSize="15sp"
                 android:textStyle="bold"
                 android:textColor="@color/black"
+
                 tools:text="Title" />
 
             <TextView
-                android:id="@+id/title_Text_view"
+                android:id="@+id/description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textAppearance="@style/TextAppearance.MaterialComponents.Subtitle2"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/popularity_text_view"
+                android:textColor="@color/black"
+                 android:lines="2"
+
                 tools:text="Bean Hummus with Eggplant" />
 
 

@@ -1,4 +1,4 @@
-package com.example.myapplication.model.article;
+package com.example.myapplication.model.article.articles;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -20,33 +20,61 @@ public class Headline{
 	private Object seo;
 
 	@SerializedName("print_headline")
-	private Object printHeadline;
+	private String printHeadline;
 
 	@SerializedName("kicker")
 	private Object kicker;
 
+	public void setSub(Object sub){
+		this.sub = sub;
+	}
+
 	public Object getSub(){
 		return sub;
+	}
+
+	public void setContentKicker(Object contentKicker){
+		this.contentKicker = contentKicker;
 	}
 
 	public Object getContentKicker(){
 		return contentKicker;
 	}
 
+	public void setName(Object name){
+		this.name = name;
+	}
+
 	public Object getName(){
 		return name;
+	}
+
+	public void setMain(String main){
+		this.main = main;
 	}
 
 	public String getMain(){
 		return main;
 	}
 
+	public void setSeo(Object seo){
+		this.seo = seo;
+	}
+
 	public Object getSeo(){
 		return seo;
 	}
 
-	public Object getPrintHeadline(){
+	public void setPrintHeadline(String printHeadline){
+		this.printHeadline = printHeadline;
+	}
+
+	public String getPrintHeadline(){
 		return printHeadline;
+	}
+
+	public void setKicker(Object kicker){
+		this.kicker = kicker;
 	}
 
 	public Object getKicker(){

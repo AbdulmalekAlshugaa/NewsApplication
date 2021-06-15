@@ -7,7 +7,7 @@ import androidx.lifecycle.MutableLiveData;
 
 
 import com.example.myapplication.di.NetworkModuleService;
-import com.example.myapplication.model.article.ArticleResponse;
+import com.example.myapplication.model.article.articles.Articles;
 
 import java.util.HashMap;
 
@@ -30,9 +30,9 @@ public class AppRepository {
 
     // get a list of movies
 
-    public LiveData<ArticleResponse> getArticles(CompositeDisposable disposable, Integer pageNumber, HashMap<String, Object> filteringParams) {
+    public LiveData<Articles> getArticles(CompositeDisposable disposable, Integer pageNumber, HashMap<String, Object> filteringParams) {
 
-        MutableLiveData<ArticleResponse> data = new MutableLiveData<>();
+        MutableLiveData<Articles> data = new MutableLiveData<>();
         disposable.add(
                 networkModuleService.movieApiRepositoryService().getAllArticles(pageNumber, filteringParams)
                         .subscribeOn(Schedulers.computation())

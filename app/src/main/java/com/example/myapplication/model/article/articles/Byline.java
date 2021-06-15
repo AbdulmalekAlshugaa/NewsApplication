@@ -1,8 +1,7 @@
-package com.example.myapplication.model.article;
-
-import com.google.gson.annotations.SerializedName;
+package com.example.myapplication.model.article.articles;
 
 import java.util.List;
+import com.google.gson.annotations.SerializedName;
 
 public class Byline{
 
@@ -15,12 +14,24 @@ public class Byline{
 	@SerializedName("organization")
 	private Object organization;
 
+	public void setOriginal(String original){
+		this.original = original;
+	}
+
 	public String getOriginal(){
 		return original;
 	}
 
+	public void setPerson(List<PersonItem> person){
+		this.person = person;
+	}
+
 	public List<PersonItem> getPerson(){
 		return person;
+	}
+
+	public void setOrganization(Object organization){
+		this.organization = organization;
 	}
 
 	public Object getOrganization(){

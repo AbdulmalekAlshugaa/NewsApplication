@@ -1,8 +1,8 @@
-package com.example.myapplication.model.article;
+package com.example.myapplication.model.article.articles;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ArticleResponse{
+public class Articles{
 
 	@SerializedName("copyright")
 	private String copyright;
@@ -13,12 +13,24 @@ public class ArticleResponse{
 	@SerializedName("status")
 	private String status;
 
+	public void setCopyright(String copyright){
+		this.copyright = copyright;
+	}
+
 	public String getCopyright(){
 		return copyright;
 	}
 
+	public void setResponse(Response response){
+		this.response = response;
+	}
+
 	public Response getResponse(){
 		return response;
+	}
+
+	public void setStatus(String status){
+		this.status = status;
 	}
 
 	public String getStatus(){
