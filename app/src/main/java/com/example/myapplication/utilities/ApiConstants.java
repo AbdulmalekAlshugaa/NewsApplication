@@ -8,6 +8,5 @@ public class ApiConstants {
     public static final String MOST_SHARED = "mostpopular/v2/shared/{period}.json";
     public static final String MOST_EMAILED = "mostpopular/v2/emailed/{period}.json";
 
-  //  public static final String SEARCH_PARAM = "release_date.desc";
 }
 
