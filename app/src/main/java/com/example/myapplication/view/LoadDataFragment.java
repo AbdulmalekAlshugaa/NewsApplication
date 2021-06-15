@@ -49,7 +49,7 @@ public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnR
         setHasOptionsMenu(true);
         view = binding.getRoot();
         // init compositDisposable
-        binding.progressBar.setVisibility(View.INVISIBLE);
+
         recyclerViewSetUp();
 
         articleListViewModel = new ViewModelProvider(this).get(MostViewViewModel.class);
@@ -58,10 +58,26 @@ public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnR
         Bundle bundle = this.getArguments();
         if(bundle != null){
             // handle your code here.
+            Log.d(TAG, "onCreateView: "+bundle.getString("key"));
+
+            switch (bundle.getString("key")){
+                case "MostShared":
+                    observeMostViewArticles(7,"shared");
+                    break;
+                case "MostView":
+                    observeMostViewArticles(30,"viewed");
+                    break;
+                case "MostEmailed":
+                    observeMostViewArticles(1,"emailed");
+                    break;
+                default:
+                    Toast.makeText(view.getContext(),"Something went wrong", Toast.LENGTH_LONG).show();
+            }
+
 
         }
 
-        observeMostViewArticles(7);
+
         return view;
     }
     private void recyclerViewSetUp() {
@@ -74,13 +90,12 @@ public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnR
 
     }
 
-    private void observeMostViewArticles(Integer period) {
-        articleListViewModel.getAllMostViewArticles(mCompositeDisposable,period)
+    private void observeMostViewArticles(Integer period,String whichEndPoint) {
+        articleListViewModel.getAllMostViewArticles(mCompositeDisposable,period,whichEndPoint)
 
                 .observe(this, articleResponse -> {
                     if(articleResponse.getResults().size() > 0){
                         for (int i=0; i<articleResponse.getResults().size(); i++){
-
                             ResultsItem item = new ResultsItem();
                             item.setTitle(articleResponse.getResults().get(i).getTitle());
                             item.setPublishedDate(articleResponse.getResults().get(i).getPublishedDate());
@@ -91,6 +106,7 @@ public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnR
                     binding.swipToRefreshLayout.setRefreshing(false);
 
                 });
+        binding.progressBar.setVisibility(View.INVISIBLE);
 
     }
     @Override

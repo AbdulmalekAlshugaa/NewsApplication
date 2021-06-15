@@ -20,8 +20,8 @@ public class MostViewViewModel extends ViewModel {
         this.appRepository = new AppRepository();
     }
 
-    public LiveData<MostView> getAllMostViewArticles(CompositeDisposable disposable, Integer period){
-      return appRepository.getTheMostViews(disposable, period);
+    public LiveData<MostView> getAllMostViewArticles(CompositeDisposable disposable, Integer period,String whichEndPoint){
+      return appRepository.getTheMostViews(disposable, period,whichEndPoint);
 
     }
 

@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData;
 import com.example.myapplication.di.NetworkModuleService;
 import com.example.myapplication.model.article.articles.Articles;
 import com.example.myapplication.model.article.mostView.MostView;
+import com.example.myapplication.utilities.ApiConstants;
 
 import java.util.HashMap;
 
@@ -44,10 +45,10 @@ public class AppRepository {
         return data;
     }
     // get the most views movie
-    public LiveData<MostView> getTheMostViews(CompositeDisposable disposable, Integer period) {
+    public LiveData<MostView> getTheMostViews(CompositeDisposable disposable, Integer period, String whichEndPoint) {
         MutableLiveData<MostView> data = new MutableLiveData<>();
         disposable.add(
-                networkModuleService.movieApiRepositoryService().getMostViewed(period)
+                networkModuleService.movieApiRepositoryService().getMostViewed(whichEndPoint,period)
                         .subscribeOn(Schedulers.computation())
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(data::postValue,

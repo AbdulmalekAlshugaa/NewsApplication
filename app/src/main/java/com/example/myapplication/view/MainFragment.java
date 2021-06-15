@@ -41,8 +41,9 @@ public class MainFragment extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("key","MostView");
                 LoadDataFragment nextFrag= new LoadDataFragment();
+                nextFrag.setArguments(bundle);
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "search")
+                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "MostView")
                         .addToBackStack(null)
                         .commit();
             }
@@ -55,7 +56,7 @@ public class MainFragment extends Fragment {
                 LoadDataFragment nextFrag= new LoadDataFragment();
                 nextFrag.setArguments(bundle);
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "search")
+                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "mostShared")
                         .addToBackStack(null)
                         .commit();
             }
@@ -68,7 +69,7 @@ public class MainFragment extends Fragment {
                 LoadDataFragment nextFrag= new LoadDataFragment();
                 nextFrag.setArguments(bundle);
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "search")
+                        .replace(R.id.main_FrameLayout_Activity, nextFrag, "mostEmailed")
                         .addToBackStack(null)
                         .commit();
             }

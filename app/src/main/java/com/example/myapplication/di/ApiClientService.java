@@ -23,15 +23,15 @@ public interface ApiClientService {
 
     // get most view
     @GET(ApiConstants.MOST_VIEWED)
-    Flowable<MostView> getMostViewed(@Path("period") Integer period);
+    Flowable<MostView> getMostViewed(@Path("whichApi") String whichApi,  @Path("period") Integer period);
 
 //    // get shared view
-//    @GET(ApiConstants.MOST_SHARED)
-//    Flowable<MostView> getMostShared(@Path("period") Integer pageNumber);
-//
-//    // get shared view
-//    @GET(ApiConstants.MOST_EMAILED)
-//    Flowable<MostView> getEmailedView(@Path("period") Integer pageNumber);
+    @GET(ApiConstants.MOST_SHARED)
+    Flowable<MostView> getMostShared(@Path("period") Integer pageNumber);
+
+    // get shared view
+    @GET(ApiConstants.MOST_EMAILED)
+    Flowable<MostView> getEmailedView(@Path("period") Integer pageNumber);
 
 
 }
