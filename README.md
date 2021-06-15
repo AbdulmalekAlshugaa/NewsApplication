@@ -1,5 +1,5 @@
 #  Project Overview 
-The developed application is an application with the aim to display a list of movies where the user can able to view detail about the movie as well as ass book the desired movie in an easy and smooth way. The user can able to filter the movies based on top rated, popularity, and alphabetical options. In addition, the developer will consume one of the popular movies API which will be attached later to this documentation.
+The developed application is an application with the aim to display a list of news where the user can able to view the tile of  the news as well as . The user can able to filter the news peroid such as 1 day , 7 days and 30 days options. In addition, the developer will consume one of the popular movies API which will be attached later to this documentation.
  ## Main Features
 1. Java
 2. MVVM
@@ -18,8 +18,7 @@ The user will be able to list all the movies and has the ability to filter movie
 2. consume a movie API using a Retrofit networking library
 3. Integrate a Reactive library such as RxJava  
 4. use a design pattern (Android Architecture ) which will use an MVVM design pattern
-5. Add dependency injection such as Dagger or Hilt, the developer will use Hilt which is on top of Dagger 
-6. Use Data Binding in order to increase readability and avoiding using normal referencing features such as `findViewById` 
+6. Use View Data Binding in order to increase readability and avoiding using normal referencing features such as `findViewById` 
 7. Test and debug code and ensure the developed code is readable, maintainable, and easy to understand   
   
 ## Design and architecture 
@@ -45,15 +44,15 @@ The application will be developed using MVVM architecture
 #### Activity Diagram will be used for the following activity and fragments
 1. Main Activity 
 2. Discover Fragment 
-3. Movie Details 
+3. popluar news
 4. Booking Movie
  #### View Model And Live Data
-1. MovieList ViewModel
-2. MovieById ViewModel
+1. popular ViewModel
+2. Article ViewModel
 #### Repository
 1. App Repository
  #### Repository
-1. Remote Data Source which is the API  http://api.themoviedb.org/3/movie/
+1. Remote Data Source which is the API https://developer.nytimes.com/
 
 ### implementation 
 | Listing Movies |Movie Details |Booking |
