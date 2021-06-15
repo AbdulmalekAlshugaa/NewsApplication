@@ -31,7 +31,7 @@
                 android:id="@+id/search_button"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Search"/>
+                android:text="@string/search"/>
 
             <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
                 android:id="@+id/swip_to_refresh_Layout"

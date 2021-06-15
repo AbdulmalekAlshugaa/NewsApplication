@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">NY Time</string>
     <string name="search">search</string>
     <string name="most_view">Most View</string>
     <string name="most_emailed">Most Emailed</string>
