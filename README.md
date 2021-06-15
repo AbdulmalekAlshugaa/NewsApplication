@@ -30,10 +30,6 @@ The user will be able to list all the movies and has the ability to filter movie
 
 The above table shows the main three functions of the application which are listing movies, filtering movies, and Movie Details. In addition, the developer should meet these requirements in order to deliver a fully functional application.
 ### Sequence diagram :
-| Sequence diagram  |
-| ----------- |
-| ![seqounce](https://user-images.githubusercontent.com/33663456/117702894-b403fd00-b1fb-11eb-9a86-ddb98abf5822.PNG) |
-The above digram show fully flow of the application where user can do all of these tasks
 
 ### Design application architecture (MVVM)
 | MVVM diagram |
