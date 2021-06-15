@@ -45,7 +45,6 @@ The application will be developed using MVVM architecture
 1. Main Activity 
 2. Discover Fragment 
 3. popluar news
-4. Booking Movie
  #### View Model And Live Data
 1. popular ViewModel
 2. Article ViewModel
