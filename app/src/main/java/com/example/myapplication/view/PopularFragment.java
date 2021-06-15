@@ -1,6 +1,8 @@
 package com.example.myapplication.view;
 
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -36,7 +38,7 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
     private CompositeDisposable mCompositeDisposable;
     private final ArrayList<ResultsItem> mPopularArrayList = new ArrayList<>();
 
-    private MostViewAdapter mCompanyProductionAdapter; // Adapt
+    private MostViewAdapter mPopularAdapter; // Adapt
 
     @Nullable
     @Override
@@ -73,6 +75,23 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
 
 
         }
+        binding.popularSearchByEditText.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                handlePopularSearchByTitle(s.toString());
+
+            }
+        });
 
 
         return view;
@@ -81,8 +100,8 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.mostViewListRecyclerView.setLayoutManager(layoutManager);
         binding.mostViewListRecyclerView.setHasFixedSize(true);
-        mCompanyProductionAdapter = new MostViewAdapter(view.getContext(), mPopularArrayList);
-        binding.mostViewListRecyclerView.setAdapter(mCompanyProductionAdapter);
+        mPopularAdapter = new MostViewAdapter(view.getContext(), mPopularArrayList);
+        binding.mostViewListRecyclerView.setAdapter(mPopularAdapter);
         binding.mostViewListRecyclerView.invalidate();
 
     }
@@ -98,7 +117,7 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
                             item.setPublishedDate(articleResponse.getResults().get(i).getPublishedDate());
                             mPopularArrayList.add(item);
                         }
-                        mCompanyProductionAdapter.notifyDataSetChanged();
+                        mPopularAdapter.notifyDataSetChanged();
                     }
                     binding.swipToRefreshLayout.setRefreshing(false);
 
@@ -121,6 +140,16 @@ public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRe
     public void onCreateOptionsMenu(@NonNull Menu menu, @NonNull MenuInflater inflater) {
         inflater.inflate(R.menu.main, menu);
         super.onCreateOptionsMenu(menu, inflater);
+
+    }
+    private void handlePopularSearchByTitle(String text) {
+        ArrayList<ResultsItem> filteredList = new ArrayList<>();
+        for (ResultsItem item : mPopularArrayList) {
+            if (item.getTitle().toLowerCase().contains(text.toLowerCase())) {
+                filteredList.add(item);
+            }
+        }
+        mPopularAdapter.filterList(filteredList);
 
     }
 

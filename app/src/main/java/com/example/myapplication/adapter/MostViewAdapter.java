@@ -14,7 +14,7 @@ import java.util.ArrayList;
 
 public class MostViewAdapter extends RecyclerView.Adapter<MostViewAdapter.ViewHolder> {
     private Context mContext;
-    private final ArrayList<ResultsItem> mostViewArticles;
+    private ArrayList<ResultsItem> mostViewArticles;
 
     public MostViewAdapter(Context mContext, ArrayList<ResultsItem> mostViewArticles) {
         this.mContext = mContext;
@@ -25,6 +25,11 @@ public class MostViewAdapter extends RecyclerView.Adapter<MostViewAdapter.ViewHo
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new ViewHolder(ArticleItemBinding.inflate(LayoutInflater.from(parent.getContext()), parent, false));
+
+    }
+    public void filterList(ArrayList<ResultsItem> filterList) {
+        mostViewArticles = filterList;
+        notifyDataSetChanged();
 
     }
 
