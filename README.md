@@ -52,9 +52,7 @@ The application will be developed using MVVM architecture
 ### implementation 
 | Main Fragment |Movie Details |Booking |
 | ----------- | ----------- | ----------- |
-| ![Capture](https://user-images.githubusercontent.com/33663456/122086588-6bf97b00-ce36-11eb-8261-31a627fc54bc.PNG)| ![Capture1](https://user-images.githubusercontent.com/33663456/122086626-761b7980-ce36-11eb-9c55-32001c12d90f.PNG)
-![Capture3](https://user-images.githubusercontent.com/33663456/122086635-7a479700-ce36-11eb-8598-845414b43434.PNG)
-|
+| ![Capture](https://user-images.githubusercontent.com/33663456/122086588-6bf97b00-ce36-11eb-8261-31a627fc54bc.PNG)| ![Capture1](https://user-images.githubusercontent.com/33663456/122086626-761b7980-ce36-11eb-9c55-32001c12d90f.PNG)|![Capture3](https://user-images.githubusercontent.com/33663456/122086635-7a479700-ce36-11eb-8598-845414b43434.PNG)|
 
 ## Testing  
 ## unit testing 
