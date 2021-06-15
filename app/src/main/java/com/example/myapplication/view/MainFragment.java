@@ -40,7 +40,7 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("key","MostView");
-                LoadDataFragment nextFrag= new LoadDataFragment();
+                PopularFragment nextFrag= new PopularFragment();
                 nextFrag.setArguments(bundle);
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_FrameLayout_Activity, nextFrag, "MostView")
@@ -53,7 +53,7 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("key","MostShared");
-                LoadDataFragment nextFrag= new LoadDataFragment();
+                PopularFragment nextFrag= new PopularFragment();
                 nextFrag.setArguments(bundle);
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_FrameLayout_Activity, nextFrag, "mostShared")
@@ -66,7 +66,7 @@ public class MainFragment extends Fragment {
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
                 bundle.putString("key","MostEmailed");
-                LoadDataFragment nextFrag= new LoadDataFragment();
+                PopularFragment nextFrag= new PopularFragment();
                 nextFrag.setArguments(bundle);
                 Objects.requireNonNull(getActivity()).getSupportFragmentManager().beginTransaction()
                         .replace(R.id.main_FrameLayout_Activity, nextFrag, "mostEmailed")

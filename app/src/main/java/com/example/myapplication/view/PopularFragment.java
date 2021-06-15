@@ -12,33 +12,24 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
-import com.example.myapplication.R;
 import com.example.myapplication.adapter.MostViewAdapter;
-import com.example.myapplication.adapter.SearchArticlesAdapter;
 import com.example.myapplication.databinding.LoadingFragmentBinding;
-import com.example.myapplication.databinding.MainFragmentBinding;
-import com.example.myapplication.model.article.articles.DocsItem;
 import com.example.myapplication.model.article.mostView.ResultsItem;
-import com.example.myapplication.singleton.SearchSingleton;
-import com.example.myapplication.viewModel.ArticleListViewModel;
-import com.example.myapplication.viewModel.MostViewViewModel;
+import com.example.myapplication.viewModel.PopularViewModel;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Objects;
 
 import io.reactivex.disposables.CompositeDisposable;
 
-public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
+public class PopularFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener {
     private View view;
     private LoadingFragmentBinding binding;
     private static final String TAG = "LoadDataFragment";
-    private MostViewViewModel articleListViewModel;
+    private PopularViewModel popularViewModel;
     private CompositeDisposable mCompositeDisposable;
-    private final ArrayList<ResultsItem> mMovieResponseArrayList = new ArrayList<>();
+    private final ArrayList<ResultsItem> mPopularArrayList = new ArrayList<>();
 
     private MostViewAdapter mCompanyProductionAdapter; // Adapt
 
@@ -52,7 +43,7 @@ public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnR
 
         recyclerViewSetUp();
 
-        articleListViewModel = new ViewModelProvider(this).get(MostViewViewModel.class);
+        popularViewModel = new ViewModelProvider(this).get(PopularViewModel.class);
         mCompositeDisposable = new CompositeDisposable();
 
         Bundle bundle = this.getArguments();
@@ -84,14 +75,14 @@ public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnR
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         binding.mostViewListRecyclerView.setLayoutManager(layoutManager);
         binding.mostViewListRecyclerView.setHasFixedSize(true);
-        mCompanyProductionAdapter = new MostViewAdapter(view.getContext(), mMovieResponseArrayList);
+        mCompanyProductionAdapter = new MostViewAdapter(view.getContext(), mPopularArrayList);
         binding.mostViewListRecyclerView.setAdapter(mCompanyProductionAdapter);
         binding.mostViewListRecyclerView.invalidate();
 
     }
 
     private void observeMostViewArticles(Integer period,String whichEndPoint) {
-        articleListViewModel.getAllMostViewArticles(mCompositeDisposable,period,whichEndPoint)
+        popularViewModel.getAllMostViewArticles(mCompositeDisposable,period,whichEndPoint)
 
                 .observe(this, articleResponse -> {
                     if(articleResponse.getResults().size() > 0){
@@ -99,7 +90,7 @@ public class LoadDataFragment extends Fragment implements SwipeRefreshLayout.OnR
                             ResultsItem item = new ResultsItem();
                             item.setTitle(articleResponse.getResults().get(i).getTitle());
                             item.setPublishedDate(articleResponse.getResults().get(i).getPublishedDate());
-                            mMovieResponseArrayList.add(item);
+                            mPopularArrayList.add(item);
                         }
                         mCompanyProductionAdapter.notifyDataSetChanged();
                     }

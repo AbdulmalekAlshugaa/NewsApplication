@@ -3,21 +3,12 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.example.myapplication.model.article.articles.Articles;
-import com.example.myapplication.view.LoadDataFragment;
+import com.example.myapplication.view.PopularFragment;
 import com.example.myapplication.view.MainFragment;
 import com.example.myapplication.view.SearchArticle;
-import com.example.myapplication.viewModel.ArticleListViewModel;
-
-import java.util.HashMap;
-
-import io.reactivex.disposables.CompositeDisposable;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +16,7 @@ public class MainActivity extends AppCompatActivity {
 
     final Fragment mainFragment = new MainFragment();
     final Fragment searchFragment = new SearchArticle();
-    final Fragment loadFragment = new LoadDataFragment();
+    final Fragment loadFragment = new PopularFragment();
     final FragmentManager fm = getSupportFragmentManager();
     @Override
     protected void onCreate(Bundle savedInstanceState) {

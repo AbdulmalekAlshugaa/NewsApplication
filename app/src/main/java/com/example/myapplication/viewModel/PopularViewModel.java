@@ -12,11 +12,11 @@ import java.util.HashMap;
 import io.reactivex.disposables.CompositeDisposable;
 
 
-public class MostViewViewModel extends ViewModel {
+public class PopularViewModel extends ViewModel {
     private AppRepository appRepository;
     private static final String TAG = "most view";
 
-    public MostViewViewModel() {
+    public PopularViewModel() {
         this.appRepository = new AppRepository();
     }
 
