@@ -34,7 +34,7 @@ The above table shows the main three functions of the application which are list
 ### Design application architecture (MVVM)
 | MVVM diagram |
 | ----------- |
-|![mvvm](https://user-images.githubusercontent.com/33663456/117793671-03d7d800-b27f-11eb-8b93-5177280164e7.PNG)|
+|![Capture](https://user-images.githubusercontent.com/33663456/122086927-c561aa00-ce36-11eb-9758-472c7e99c91a.PNG)
 
 The application will be developed using MVVM architecture
 #### Activity Diagram will be used for the following activity and fragments
