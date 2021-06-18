@@ -58,7 +58,7 @@ The application will be developed using MVVM architecture
 ## unit testing 
 The develoepr has tested only  two major functions which are get list of movies as well as get movie by ID 
 ### implementation 
-| Listing Newss (Unit Testing) |Searching News (Unit testing) |
+| Listing News (Unit Testing) |Searching News (Unit testing) |
 | ----------- | ----------- |
 | ![getAllMoviews](https://user-images.githubusercontent.com/33663456/122535170-e0f6cb80-d055-11eb-9c30-0c8db852768a.PNG)|![searchApi](https://user-images.githubusercontent.com/33663456/122535217-ebb16080-d055-11eb-8a1f-ee1f5c0a88d6.PNG)
 |
