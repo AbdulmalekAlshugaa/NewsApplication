@@ -14,6 +14,7 @@ import io.reactivex.disposables.CompositeDisposable;
 public class SearchViewModelTest {
     private SearchArticleViewModel viewModel;
 
+
     @Before
     public void setUp() throws Exception {
         viewModel = new SearchArticleViewModel();
