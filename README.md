@@ -58,8 +58,9 @@ The application will be developed using MVVM architecture
 ## unit testing 
 The develoepr has tested only  two major functions which are get list of movies as well as get movie by ID 
 ### implementation 
-| Listing Movies (Unit Testing) |Movie Details (Unit testing) |
+| Listing Newss (Unit Testing) |Searching News (Unit testing) |
 | ----------- | ----------- |
-| ![listofMoviesTesting](https://user-images.githubusercontent.com/33663456/117711787-237eea00-b206-11eb-9d37-9d6ce780a322.PNG)|![Capture](https://user-images.githubusercontent.com/33663456/117712442-ea934500-b206-11eb-8b5e-877beff58058.PNG)|
+| ![getAllMoviews](https://user-images.githubusercontent.com/33663456/122535170-e0f6cb80-d055-11eb-9c30-0c8db852768a.PNG)|![searchApi](https://user-images.githubusercontent.com/33663456/122535217-ebb16080-d055-11eb-8a1f-ee1f5c0a88d6.PNG)
+|
 ## Running this app
 To run this app you will need to have an Android device or emulator that supports Android version 6 onward. The device should have an internet connection. 
