@@ -20,7 +20,7 @@ import com.example.myapplication.adapter.SearchArticlesAdapter;
 import com.example.myapplication.databinding.SearchArticleBinding;
 import com.example.myapplication.model.article.articles.DocsItem;
 import com.example.myapplication.singleton.SearchSingleton;
-import com.example.myapplication.viewModel.searchArticleViewModel;
+import com.example.myapplication.viewModel.SearchArticleViewModel;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -32,7 +32,7 @@ public class SearchArticle extends Fragment implements SwipeRefreshLayout.OnRefr
     private View view;
     private SearchArticleBinding binding;
     // init article view model
-    private searchArticleViewModel searchArticleViewModel;
+    private SearchArticleViewModel searchArticleViewModel;
     private CompositeDisposable mCompositeDisposable;
     private final ArrayList<DocsItem> mMovieResponseArrayList = new ArrayList<>();
     private static final String TAG = "SearchArticle";
@@ -48,7 +48,7 @@ public class SearchArticle extends Fragment implements SwipeRefreshLayout.OnRefr
         view = binding.getRoot();
         binding.progressBar.setVisibility(View.INVISIBLE);
         // init
-        searchArticleViewModel = new ViewModelProvider(this).get(searchArticleViewModel.class);
+        searchArticleViewModel = new ViewModelProvider(this).get(SearchArticleViewModel.class);
         mCompositeDisposable = new CompositeDisposable();
         recyclerViewSetUp();
        // testListViews();

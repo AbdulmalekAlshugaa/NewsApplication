@@ -1,6 +1,7 @@
 package com.example.myapplication.repository;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -53,6 +54,7 @@ public class AppRepository {
                         .observeOn(AndroidSchedulers.mainThread())
                         .subscribe(data::postValue,
                                 throwable -> {
+
                                     Log.d(TAG, "error: "+throwable.getMessage().toString());
                                 }));
         return data;

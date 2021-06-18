@@ -10,7 +10,7 @@ public class Constants {
     private static final String TAG = "Constants";
     // article api Params
     public static final String BASE_URL = "https://api.nytimes.com/svc/";
-    public static final String API_KEY = "WBHfiO2TSmN4WQJE0tvCITq8Uasx2dKx";
+    public static final String API_KEY = "lpXE3nOHJPHkvaZgVoOuuaLGGzUBFoYk";
 
     public static final String API_KEY_IDENTIFIER = "api-key"; // api key path use in appendAPIkey
     public static final String IMAGE_PATH = "";
