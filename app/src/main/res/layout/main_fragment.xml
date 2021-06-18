@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/main_ToolBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="@string/search"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/search_articles_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_custome"
+                android:padding="10dp"
+                android:text="Search Articles"
+                android:textColor="@color/md_black_1000"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                app:drawableEndCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:text="Popular"
+                android:textColor="@color/black"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/most_view_fragment"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_custome"
+                android:padding="10dp"
+                android:text="@string/most_view"
+                android:textColor="@color/md_black_1000"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                app:drawableEndCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
+            <TextView
+                android:id="@+id/most_shared"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_custome"
+                android:padding="10dp"
+                android:text="Most Shared"
+                android:textColor="@color/md_black_1000"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                app:drawableEndCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
+            <TextView
+                android:id="@+id/most_emailed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/tv_custome"
+                android:padding="10dp"
+                android:text="@string/most_emailed"
+                android:textColor="@color/md_black_1000"
+                android:textSize="15dp"
+                android:textStyle="normal"
+                app:drawableEndCompat="@drawable/ic_keyboard_arrow_right_black_24dp" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
